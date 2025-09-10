@@ -107,7 +107,7 @@ const Recipes = () => {
                 className="bg-white border border-gray-200 rounded-xl p-4 shadow hover:shadow-lg transition"
               >
                 <Link
-                  to={`/recipe/${recipe.id}`}
+                  to={`/doctor/${recipe.id}`}
                   className="text-indigo-600 hover:underline text-lg font-semibold"
                 >
                   {recipe.name}

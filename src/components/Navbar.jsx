@@ -22,14 +22,14 @@ const Navbar = () => {
               Home
             </NavLink>
             <NavLink
-              to="/recipes"
+              to="/doctors"
               className={({ isActive }) =>
                 `${
                   isActive ? "text-gray-900" : "text-gray-600"
                 } mr-5 font-medium text-gray-600 hover:text-gray-900`
               }
             >
-              Recipes
+              Docotrs
             </NavLink>
             <NavLink
               to="/about"

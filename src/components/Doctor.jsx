@@ -12,6 +12,9 @@ const Recipe = () => {
       const response = await fetch(`https://dummyjson.com/recipes/${id}`);
       const result = await response.json();
       setRecipe(result);
+      console.log(`response: ${response}`);
+      console.log(`result: ${result}`);
+      
     }
     fetchRecipe();
   }, [id]);
@@ -24,7 +27,7 @@ const Recipe = () => {
       const { recipes } = await response.json();
 
       const similar = recipes.filter((r) => {
-        return r.mealType.includes(recipe.mealType[0]) && r.id !== recipe.id;
+        return r.mealType[0] === recipe.mealType[0] && r.id !== recipe.id;
       });
 
       setAlsoLike(similar);
@@ -34,7 +37,7 @@ const Recipe = () => {
 
   if (!recipe)
     return (
-      <p className="flex items-center justify-center min-h-screen font-bold text-2xl">
+      <p className="flex items-center justify-center min-h-screen font-bold text-4xl">
         Loading...
       </p>
     );
@@ -70,7 +73,7 @@ const Recipe = () => {
       <div className="w-full px-8">
         <h1 className="text-2xl font-semibold">You may also like</h1>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {alsoLike.map((recipe) => (
+          {alsoLike.length === 0 ? (<p>No suggestion.</p>) : alsoLike.map((recipe) => (
             <li
               key={recipe.id}
               className="bg-white border border-gray-200 rounded-xl p-4 shadow hover:shadow-lg transition"

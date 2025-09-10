@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Recipes from "./pages/Recipes";
+import Recipes from "./pages/Doctors";
 import About from "./pages/About";
 import Footer from "./components/Footer";
-import Recipe from './components/Recipe';
+import Recipe from './components/Doctor';
 
 const App = () => {
   return (
@@ -12,9 +12,9 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/doctors" element={<Recipes />} />
         <Route path="/about" element={<About />} />
-        <Route path="/recipe/:id" element={<Recipe />} />
+        <Route path="/doctor/:id" element={<Recipe />} />
       </Routes>
       <Footer />
     </>
